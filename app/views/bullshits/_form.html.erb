@@ -1,0 +1,32 @@
+<%= form_with(model: bullshit) do |form| %>
+  <% if bullshit.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(bullshit.errors.count, "error") %> prohibited this bullshit from being saved:</h2>
+
+      <ul>
+        <% bullshit.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :title, style: "display: block" %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label :description, style: "display: block" %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div>
+    <%= form.label :random_field, style: "display: block" %>
+    <%= form.text_field :random_field %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
