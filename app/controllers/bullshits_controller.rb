@@ -1,6 +1,6 @@
 class BullshitsController < ApplicationController
   before_action :set_bullshit, only: %i[ show edit update destroy ]
-  http_basic_authenticate_with :name => "user", :password => "password", only: :basic_auth
+  http_basic_authenticate_with :name => "user", :password => ENV["BASIC_AUTH"], only: :basic_auth
 
   # GET /bullshits or /bullshits.json
   def index
