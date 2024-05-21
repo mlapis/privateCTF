@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     collection do
       get  "basic_auth"
       get  "rules"
+      get  "search"
     end
   end
   devise_for :users

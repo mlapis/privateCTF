@@ -15,3 +15,9 @@
   </p>
 
 </div>
+
+<% if bullshit.hidden_parameter == "admin" %>
+  <p>Flag: <%= ENV["FLAG3"] %></p>
+<% else %>
+  <p>hidden_parameter has to be admin to show the flag</p>
+<% end %>

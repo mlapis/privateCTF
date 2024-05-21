@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Bullshits</h1>
+
+<div id="bullshits">
+  <% @bullshits.each do |bullshit| %>
+    <%= render bullshit %>
+    <p>
+      <%= link_to "Show this bullshit", bullshit %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New bullshit", new_bullshit_path %>

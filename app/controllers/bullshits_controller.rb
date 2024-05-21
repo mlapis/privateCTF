@@ -65,6 +65,15 @@ class BullshitsController < ApplicationController
   def rules
   end
 
+  def search
+    search_term = params[:search]
+    if search_term.blank?
+      @bullshits = []
+    else
+      @bullshits = current_user.bullshits.where("title LIKE ? OR description LIKE ? OR random_field LIKE ?", "%#{search_term}%", "%#{search_term}%", "%#{search_term}%")
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_bullshit
