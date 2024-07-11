@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  web:
+    build: .
+    command: bin/rails server -p 3000 -b '0.0.0.0'
+    volumes:
+      - .:/app
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: postgres://postgres:postgres@db:5432/your_app_name_development
+      SECRET_KEY_BASE: d7835b7d2ede8dd344708638119523d3
+
+  db:
+    image: postgres:16
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+
+volumes:
+  postgres_data:
